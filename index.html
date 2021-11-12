@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pre</title>
+    <style>
+        img
+        {
+            width: 200px;
+            height: 135px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        img.a
+        {
+            width: 400px;
+            height: 330px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 30px;
+            width: 50%;
+        }
+        p a
+        {
+            display: inline-block;
+            text-decoration: none;
+            text-transform: uppercase;
+            width: 23%;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            margin: 0px;
+            padding: 10px;
+            color: darkred;
+        }
+        a
+        {
+            text-align: center;
+        }
+        p :hover
+        {
+            background-color: lightpink;
+        }
+        p
+        {
+            border-top: 1px solid;
+            border-bottom: 1px solid;
+            margin: 0px;
+        }
+        footer
+        {
+            text-align: center;
+        }
+        body
+        {
+            background-color:whitesmoke;
+        }
+        form
+        {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding-left: 40px;
+            border: 1px solid;
+            width: 225px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            font-size:larger;  
+            box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
+            background-color:lightblue;
+        }
+        input
+        {
+            box-shadow: 0 0 10px 4px pink;
+        }
+        
+        span
+        {
+            color:red
+        }
+        table, th, td
+        {
+            border: 1px solid;
+            border-collapse: collapse;
+            
+        }
+        tr:hover{
+        background-color:lightgray;
+        cursor:pointer;
+        }
+        div.a
+        {
+            width: 500px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: xx-large;
+        }
+        
+        table tr:nth-child(1){
+        background-color:skyblue;
+        }
+        
+    </style>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+        <header><img src="student.png" alt="student"></header>
+        <p>
+            <a href="#!">Home</a>
+            <a href="#!Student">student</a>
+            <a href="#!Add">Add New student</a>
+            <a href="#!About">About</a>
+        </p>
+        
+        <div ng-view></div>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-route.js"></script>
+        <script>
+            var app = angular.module("myApp", ["ngRoute"]);
+            app.controller("myCtrl", function ($scope) {
+    
+            });
+            app.config(function ($routeProvider) {
+                $routeProvider
+                    .when("/", {
+                        templateUrl: "home1.html"
+                    })
+                    .when("/Student", {
+                        templateUrl: "student.html",
+                        controller: "stuCtrl"
+                    })
+                    .when("/Add", {
+                        templateUrl: "addStu.html",
+                        controller: "addCtrl"
+                    })
+                    .when("/About", {
+                        templateUrl: "about.html"
+                    });
+            });
+
+            app.service("myService", function(){
+            this.stuList = "";
+        })
+
+        app.controller("stuCtrl",function($scope,$http,myService){
+            $scope.studentList = myService.stuList;
+            if($scope.studentList == "")
+            {
+                $http.get("Stu.json").then(function(response){
+                    $scope.studentList = response.data;
+                    myService.stuList = $scope.studentList
+                })   
+            }
+            
+    })    
+
+    app.controller("addCtrl", function($scope,myService){
+            $scope.studentList = myService.stuList;
+            $scope.Add = function(){
+            $scope.suc = "Add new food successfully";
+            $scope.studentList.stuList.push({"id":$scope.id, "name":$scope.name, "lop":$scope.lop, "gender":$scope.gender})
+            myService.stuList = $scope.studentList;
+            
+        }  
+    })
+      
+       
+        </script>
+
+
+        
+</body>
+</html>
