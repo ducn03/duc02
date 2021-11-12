@@ -1,0 +1,25 @@
+<form action="" name="myForm">
+    <h2>Add new student</h2>
+    <h2>ID</h2> 
+    <input type="text" name="id" ng-model="id" required> 
+    <span ng-show="myForm.id.$error.required && myForm.id.$dirty">ID is required.</span> 
+    <br>
+    <h2>Name</h2>
+    <input type="text" name="name" ng-model="name" required>
+    <span ng-show="myForm.name.$error.required && myForm.name.$dirty">Name is required.</span> 
+    <br>
+    <h2>Class</h2>
+    <input type="text" name="lop" ng-model="lop" required>
+    <span ng-show="myForm.lop.$error.required && myForm.lop.$dirty">Class is required.</span>
+    <h2>Gender</h2>
+    <input  type="radio" name="gender" ng-model="gender" value="Male">Male
+    <input  type="radio" name="gender" ng-model="gender" value="Female">Female
+    
+    <br> <br>
+    <button ng-disabled="myForm.id.$error.required || myForm.name.$error.required || myForm.lop.$error.required" value="Add" ng-click="Add()">Add</button>
+    <br> <br>
+    <span>{{suc}}</span>
+</form>
+
+
+
