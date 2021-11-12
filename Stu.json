@@ -1,0 +1,6 @@
+{"stuList": [
+    {"id": "St01", "name":"Nguyễn Đình Đức", "lop":12, "gender":"Male"},
+    {"id": "St02", "name":"Phùng Thế Hưng", "lop":12, "gender":"Male"},
+    {"id": "St03", "name":"Trần Hoàng Phúc", "lop":12, "gender":"Male"},
+    {"id": "St04", "name":"Vương Đình Hiếu", "lop":12, "gender":"Male"}
+]}
