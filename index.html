@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pre</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
         img
         {
@@ -42,6 +46,7 @@
         p :hover
         {
             background-color: lightpink;
+            text-decoration: none;
         }
         p
         {
@@ -55,25 +60,22 @@
         }
         body
         {
-            background-color:whitesmoke;
+            background: linear-gradient(to bottom right, #D5DEE7 0%, #E8EBF2 50%, #E2E7ED 100%);
         }
         form
         {
             margin-top: 20px;
             margin-bottom: 20px;
-            padding-left: 40px;
+            padding-left: 30px;
+            padding-right: 40px;
             border: 1px solid;
-            width: 225px;
+            width: 350px;
             display: block;
             margin-left: auto;
             margin-right: auto;
             font-size:larger;  
             box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
-            background-color:lightblue;
-        }
-        input
-        {
-            box-shadow: 0 0 10px 4px pink;
+            background: linear-gradient(to bottom right,  #a1c4fd, #c2e9fb);
         }
         
         span
@@ -84,7 +86,10 @@
         {
             border: 1px solid;
             border-collapse: collapse;
-            
+        }
+        table
+        {
+            width: 600px;
         }
         tr:hover{
         background-color:lightgray;
@@ -102,6 +107,7 @@
         table tr:nth-child(1){
         background-color:skyblue;
         }
+
         @media screen and (max-width:500px)
         {
         p a
@@ -109,6 +115,8 @@
             list-style-type: none;
             width: 100%; 
         }
+    }
+        
     </style>
 </head>
 <body ng-app="myApp" ng-controller="myCtrl">
